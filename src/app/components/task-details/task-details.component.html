@@ -1,0 +1,21 @@
+<div class="task-details" *ngIf="task">
+  <div class="header">
+    <h2>Task Details</h2>
+    <a routerLink="/tasks" class="primary-button">
+      <span class="material-icons">arrow_back</span>
+      Back to List
+    </a>
+  </div>
+  <div class="info-message">
+    <span class="material-icons">info</span>
+    Toggle the checkbox to mark task as completed or incomplete
+  </div>
+  <div class="task-header">
+    <app-checkbox [(ngModel)]="task.isDone" (ngModelChange)="onTaskToggle()"></app-checkbox>
+    <h3 [class.completed]="task.isDone">
+      {{ task.title }}
+      <span *ngIf="task.isDone" class="status-badge">Completed</span>
+    </h3>
+  </div>
+  <p>{{ task.description }}</p>
+</div> 

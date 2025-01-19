@@ -1,0 +1,17 @@
+<div class="task-list">
+  <h2>Tasks List</h2>
+  <div class="info-message">
+    <span class="material-icons">info</span>
+    Select a task to view details and update its status
+  </div>
+  <ol>
+    <li *ngFor="let task of tasks" class="task-item">
+      <a [routerLink]="['/tasks', task.id]">
+        <span [class.completed]="task.isDone">
+          {{ task.title }}
+          <span *ngIf="task.isDone" class="status-badge">Completed</span>
+        </span>
+      </a>
+    </li>
+  </ol>
+</div> 
